@@ -1,0 +1,25 @@
+---
+title: '#tidytuesday screencast: David Robinson edition'
+author: "Philipp Regenauer"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(scales)
+```
+
+Grab a csv directly from github: select file -> raw -> copy & paste link
+```{r}
+recent_grads <- read_csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/college-majors/recent-grads.csv")
+recent_grads %>% View
+```
+
+Data contains column with earnings information by major. Due to being log normal distributed, which means that there are long tails in the distribution, the median value is a better statistical measure than the mean to report on 'average' earnings per major.
+
